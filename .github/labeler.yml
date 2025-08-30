@@ -1,0 +1,6 @@
+# Example labeler configuration for the label.yml workflow
+workflows:
+  - ".github/workflows/*"
+docs:
+  - "*.md"
+  - "docs/**/*"
