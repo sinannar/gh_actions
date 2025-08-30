@@ -1,0 +1,32 @@
+name: Custom Workflow
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+  workflow_dispatch:
+    inputs:
+      example_input:
+        description: 'An example input'
+        required: false
+        default: 'default value'
+  schedule:
+  - cron: '0 0 * * 0'
+
+jobs:
+  example_job1:
+    name: Example Job 1
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: echo "Hello, World! from 1"
+    
+  example_job2:
+    name: Example Job 2
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: echo "Hello, World! from 2"
