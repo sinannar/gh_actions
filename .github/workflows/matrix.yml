@@ -7,9 +7,11 @@ jobs:
     name: Example Job 
     strategy:
       matrix:
+        input: ['hello1', 'hello2']
         os: [ubuntu-latest, windows-latest]
         output: ['hello1', 'hello2']
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
     - run: echo "${{ matrix.output }}"
+    - run: echo "${{ matrix.input }}"
