@@ -1,8 +1,10 @@
 name: Summarize new issues
 
-on:
-  issues:
-    types: [opened]
+on: 
+  workflow_dispatch:  
+# on:
+  # issues:
+  #   types: [opened]
 
 jobs:
   summary:
