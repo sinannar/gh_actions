@@ -1,0 +1,23 @@
+name: Manual Trigger with Input
+on:
+  workflow_dispatch:
+
+env:
+    GLOBAL_ENV1: "ge1_v"
+    GLOBAL_ENV2: "ge2_v"
+    ENV_V_3: "ge3_v"
+    
+jobs:
+  example_job:
+    name: Example Job 
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - run: |
+        echo "Global Env 1: $env.GLOBAL_ENV1"
+        echo "Global Env 2: $env.GLOBAL_ENV2"
+        echo "ENV_V_3: $env.ENV_V_3"
+      env:
+        ENV_V_3: "je3_v"
+    
+    
