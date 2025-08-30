@@ -1,0 +1,15 @@
+name: Matrix
+on:
+  workflow_dispatch:
+    
+jobs:
+  example_job:
+    name: Example Job 
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        output: ['hello1', 'hello2']
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v3
+    - run: echo "${{ matrix.output }}"
