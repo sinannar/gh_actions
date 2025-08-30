@@ -1,6 +1,16 @@
-# Example labeler configuration for the label.yml workflow
+# Configuration for actions/labeler@v4
+# This file defines how pull requests are automatically labeled based on 
+# file changes
+
+# Label for changes to GitHub Actions workflow files
 workflows:
-  - ".github/workflows/*"
-docs:
-  - "*.md"
-  - "docs/**/*"
+  - '.github/workflows/**'
+
+# Label for documentation changes
+documentation:
+  - '*.md'
+  - 'docs/**'
+
+# Label for any changes to GitHub configuration
+github-actions:
+  - '.github/**'
