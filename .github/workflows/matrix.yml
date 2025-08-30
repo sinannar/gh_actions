@@ -13,5 +13,5 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
-    - run: echo "${{ matrix.output }}"
-    - run: echo "${{ matrix.input }}"
+    - run: echo input :"${{ matrix.input }}"
+    - run: echo output :"${{ matrix.output }}"
