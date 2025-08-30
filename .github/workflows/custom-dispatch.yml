@@ -2,7 +2,6 @@ name: Custom Dispatch Listener
 
 on:
   repository_dispatch:
-    types: [run-tests, deploy-to-prod]  # Optional filtering
 
 jobs:
   run:
