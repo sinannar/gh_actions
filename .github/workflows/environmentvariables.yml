@@ -3,21 +3,28 @@ on:
   workflow_dispatch:
 
 env:
-    GLOBAL_ENV1: "ge1_v"
-    GLOBAL_ENV2: "ge2_v"
+    ENV_V_1: "ge1_v"
+    ENV_V_2: "ge2_v"
     ENV_V_3: "ge3_v"
     
 jobs:
-  example_job:
-    name: Example Job 
+  job_with_env:
+    name: Job with Env
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
     - run: |
-        echo "Global Env 1: $env.GLOBAL_ENV1"
-        echo "Global Env 2: $env.GLOBAL_ENV2"
-        echo "ENV_V_3: $env.ENV_V_3"
+        echo "ENV_V_1: $ENV_V_1"
+        echo "ENV_V_2: $ENV_V_2"
+        echo "ENV_V_3: $ENV_V_3"
       env:
         ENV_V_3: "je3_v"
-    
-    
+  job_without_env:
+    name: Job without Env
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - run: |
+        echo "ENV_V_1: $ENV_V_1"
+        echo "ENV_V_2: $ENV_V_2"
+        echo "ENV_V_3: $ENV_V_3"
