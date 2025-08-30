@@ -1,7 +1,7 @@
 name: Share data between jobs
 
 on:
-  repository_dispatch:
+  workflow_dispatch:
     
 jobs:
   job_1:
