@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="sinannar.ghactionstest.classlib.tests/sinannar.ghactionstest.classlib.tests.csproj" />
+  <Project Path="sinannar.ghactionstest.classlib/sinannar.ghactionstest.classlib.csproj" />
+</Solution>
