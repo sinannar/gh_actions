@@ -15,6 +15,11 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Install MyCLI
+        uses: ./.github/actions/my-cli-action
+        with:
+          version: '1.2.3'
+                    
       - name: Display result
         run: |
           echo "Script Result: ${{ steps.run-script.outputs.result }}"
