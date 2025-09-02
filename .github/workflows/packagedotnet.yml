@@ -31,3 +31,8 @@ jobs:
 
     - name: Pack
       run: dotnet pack ./source/sinannar.ghactionstest.classlib/sinannar.ghactionstest.classlib.csproj --configuration Release --no-build --output ./nupkg
+
+    - name: Push
+      run: dotnet nuget push ./nupkg/*.nupkg --source https://nuget.pkg.github.com/sinannar/index.json --api-key ${GITHUB_TOKEN}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
