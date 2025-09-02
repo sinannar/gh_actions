@@ -1,0 +1,33 @@
+name: Nuget Package
+
+on:
+  push:
+    branches:
+      - main
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore ./source/sinannar.ghactionstest.classlib/sinannar.ghactionstest.classlib.csproj
+
+    - name: Build
+      run: dotnet build ./source/sinannar.ghactionstest.classlib/sinannar.ghactionstest.classlib.csproj --configuration Release --no-restore
+
+    - name: Test
+      run: dotnet test ./source/sinannar.ghactionstest.classlib.tests/sinannar.ghactionstest.classlib.tests.csproj --configuration Release --no-build --verbosity normal
+
+    - name: Pack
+      run: dotnet pack ./source/sinannar.ghactionstest.classlib/sinannar.ghactionstest.classlib.csproj --configuration Release --no-build --output ./nupkg
