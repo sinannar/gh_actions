@@ -14,12 +14,16 @@ jobs:
         uses: ./.github/actions/my-composite-action
         with:
           node-version: '18'
+      - name: Display result
+        run: |
+          echo "Script Result: ${{ steps.run-script.outputs.result }}"
 
       - name: Install MyCLI
         uses: ./.github/actions/my-cli-action
         with:
-          version: '1.2.3'
-                    
-      - name: Display result
+          version: '1.2.3'          
+      - name: Verify CLI Installation
         run: |
-          echo "Script Result: ${{ steps.run-script.outputs.result }}"
+          echo "Checking MyCLI version..."
+          mycli --version
+          
